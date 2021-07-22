@@ -1,10 +1,12 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const header = ({ currentUser }) => {
   const links = [
-    !currentUser && { label: "Sign Up", href: "/auth/signup" },
-    !currentUser && { label: "Sign In", href: "/auth/signin" },
-    currentUser && { label: "Sign out", href: "/auth/signout" },
+    !currentUser && { label: 'Sign Up', href: '/auth/signup' },
+    !currentUser && { label: 'Sign In', href: '/auth/signin' },
+    currentUser && { label: 'Sell Tickets', href: '/tickets/new' },
+    currentUser && { label: 'My Orders', href: '/orders' },
+    currentUser && { label: 'Sign out', href: '/auth/signout' },
   ]
     .filter((linkConfig) => linkConfig)
     .map(({ label, href }) => {
@@ -14,8 +16,8 @@ const header = ({ currentUser }) => {
             <a className='nav-link'>{label}</a>
           </Link>
         </li>
-      );
-    });
+      )
+    })
 
   return (
     <nav className='navbar navbar-light bg-light'>
@@ -26,7 +28,7 @@ const header = ({ currentUser }) => {
         <ul className='nav d-flex align-items-center'>{links}</ul>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default header;
+export default header
